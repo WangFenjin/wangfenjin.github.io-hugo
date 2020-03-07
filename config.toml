@@ -6,9 +6,10 @@ theme = "terminal"
 [params]
   contentTypeName = "posts"
   themeColor = "green"
-  showMenuItems = 2
+  showMenuItems = 10
   fullWidthTheme = true
   centerTheme = true
+  favicon = "favicon.ico"
 
 [languages]
   [languages.en]
@@ -26,10 +27,12 @@ theme = "terminal"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.en.menu.main]]
         identifier = "home"
         name = "Home"
         url = "/"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+        weight = 2
