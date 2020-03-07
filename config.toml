@@ -1,0 +1,4 @@
+baseURL = "https://wangfenjin.github.io"
+languageCode = "en-us"
+title = "Wang Fenjin"
+theme = "ananke"
