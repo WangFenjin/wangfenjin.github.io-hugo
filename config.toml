@@ -1,12 +1,13 @@
-baseURL = "https://wangfenjin.github.io"
+baseURL = "https://www.wangfenjin.com"
 languageCode = "en-us"
 title = "Wang Fenjin"
 theme = "terminal"
+paginate = 10
 
 [params]
   contentTypeName = "posts"
   themeColor = "green"
-  showMenuItems = 10
+  showMenuItems = 2
   fullWidthTheme = true
   centerTheme = true
   favicon = "favicon.ico"
