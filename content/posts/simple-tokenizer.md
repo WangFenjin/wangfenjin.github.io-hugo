@@ -2,6 +2,7 @@
 title: "Simple: 一个支持中文和拼音搜索的 sqlite fts5插件"
 date: "2020-03-08"
 author: "Wang Fenjin"
+showFullContent: false
 ---
 
 之前的工作关系，需要在手机上支持中文和拼音搜索。由于手机上存储数据一般都是用 sqlite，所以是基于 sqlite3 fts5 来实现。这段时间再次入门 c++，所以想用 c++ 实现一下，一来用于练手，二来当时做的时候发现网络上这方面开源的实现不多，也造福下其他人。
@@ -38,7 +39,19 @@ author: "Wang Fenjin"
 可以看到 query 词重构的逻辑也比较多，在之前的项目中没有好的办法，所以是自己在应用层代码里面组装好了 query 再给 sqlite 去搜的，这样其实不太方便。在这个项目中，我实现了一个 simple_query 的字符串函数，输入一个 string，它会给转换成组装好的搜索词，用法跟使用 sqlite 内置函数一样，这样就方便很多了，下面是一个例子：
 
 ```sql
-  select simple_highlight(t1, 0, '[', ']') from t1 where x match simple_query('zhoujiel');
+-- 完整例子：https://github.com/wangfenjin/simple/blob/master/test.sql
+
+-- load so file
+.load libsimple.so
+
+-- set tokenize to simple
+CREATE VIRTUAL TABLE t1 USING fts5(x, tokenize = "simple");
+
+-- add some values into the table
+insert into t1 values ("周杰伦 Jay Chou:最美的不是下雨天，是曾与你躲过雨的屋檐"),
+
+-- query result: [周杰伦] Jay Chou:最美的不是下雨天，是曾与你躲过雨的屋檐
+select simple_highlight(t1, 0, '[', ']') from t1 where x match simple_query('zhoujiel');
 ```
 
 可以看到， match 后面用 simple_query 这个函数，传入用户输入的搜索词就可以用了。
@@ -46,6 +59,8 @@ author: "Wang Fenjin"
 另外 sql 中还有一个 simple_highlight 函数，它的作用和内置的 highlight 函数一样，只是它会把连续命中的词一起高亮。比如对于文档"周杰伦"，如果搜索词是 'zhou AND jie'，那么 highlight 函数会返回 "[周][杰]伦"，simple_highlight 会返回 "[周杰]伦"。
 
 ## 总结
+
+最后说几句关于 sqlite fts5 的使用的问题。个人建议通过 trigger 的方式来维护索引的这张表，具体使用的方式可以在官方文章中搜索 trigger 找到例子。这样使用的好处是没有复杂的逻辑去保证文档数据和索引数据一致，微信的文章中很大一部分复杂度在描述怎么保证数据一致的问题。他们可能有自己的业务复杂性，但是对于一般的场景来说， trigger 是最好的方式。
 
 从这个项目我们能学到：
 
@@ -55,11 +70,9 @@ author: "Wang Fenjin"
 
 大家可以下载使用，也可以根据自己的需求去改进，定制更多的函数和策略。
 
+## Reference
 
-
-
-
-
-
-
-
+- Simple 分词器: https://github.com/wangfenjin/simple
+- sqlite 官方文档：https://www.sqlite.org/fts5.html
+- 微信全文搜索优化之路：https://juejin.im/entry/59e6cd266fb9a0451968ab02
+- 微信移动端的全文检索多音字问题解决方案：https://cloud.tencent.com/developer/article/1198371
