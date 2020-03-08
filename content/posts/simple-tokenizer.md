@@ -2,7 +2,7 @@
 title: "Simple: 一个支持中文和拼音搜索的 sqlite fts5插件"
 date: "2020-03-08"
 author: "Wang Fenjin"
-showFullContent: false
+showFullContent: true
 ---
 
 之前的工作关系，需要在手机上支持中文和拼音搜索。由于手机上存储数据一般都是用 sqlite，所以是基于 sqlite3 fts5 来实现。这段时间再次入门 c++，所以想用 c++ 实现一下，一来用于练手，二来当时做的时候发现网络上这方面开源的实现不多，也造福下其他人。
