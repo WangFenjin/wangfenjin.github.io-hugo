@@ -74,7 +74,7 @@ select simple_highlight(t1, 0, '[', ']') from t1 where x match simple_query('zho
 
 ## Reference
 
-- Simple 分词器: https://github.com/wangfenjin/simple
-- sqlite 官方文档：https://www.sqlite.org/fts5.html
-- 微信全文搜索优化之路：https://juejin.im/entry/59e6cd266fb9a0451968ab02
-- 微信移动端的全文检索多音字问题解决方案：https://cloud.tencent.com/developer/article/1198371
+- Simple 分词器: [https://github.com/wangfenjin/simple](https://github.com/wangfenjin/simple)
+- sqlite 官方文档：[https://www.sqlite.org/fts5.html](https://www.sqlite.org/fts5.html)
+- 微信全文搜索优化之路：[https://juejin.im/entry/59e6cd266fb9a0451968ab02](https://juejin.im/entry/59e6cd266fb9a0451968ab02)
+- 微信移动端的全文检索多音字问题解决方案：[https://cloud.tencent.com/developer/article/1198371](https://cloud.tencent.com/developer/article/1198371)
