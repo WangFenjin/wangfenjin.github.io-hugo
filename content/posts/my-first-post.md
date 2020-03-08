@@ -1,9 +1,9 @@
-+++
-title = "Showcase"
-date = "2018-07-18"
-author = "Hello Robot"
-showFullContent = false
-+++
+---
+title:  "Showcase"
+date:  "2018-07-18"
+author: "Hello Robot"
+description: "markdown 常用语法"
+---
 
 ## Header 2
 
