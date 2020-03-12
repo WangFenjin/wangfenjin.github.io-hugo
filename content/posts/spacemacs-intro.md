@@ -40,6 +40,6 @@ evil
 
 ## Shell: SPC+'
 
-eshll
+eshell
 
 ## Help: SPC+?, SPC+h
