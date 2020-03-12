@@ -1,4 +1,11 @@
-# Spacemacs Intro
+---
+title: "Spacemacs Intro"
+date: "2020-03-12"
+author: "Wang Fenjin"
+tags: ["vim", "emacs", "ide", "editor", "vscode"]
+keywords: ["vim", "emacs", "ide", "editor", "vscode"]
+description: "The best editor is emacs and vim!"
+---
 
 What's spacemacs?
 
