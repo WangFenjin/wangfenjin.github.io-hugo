@@ -7,6 +7,8 @@ keywords: ["vim", "emacs", "ide", "editor", "vscode"]
 description: "The best editor is emacs and vim!"
 ---
 
+Intro video: [https://www.ixigua.com/i6803300850765660676/](https://www.ixigua.com/i6803300850765660676/)
+
 What's spacemacs?
 
 1. A emacs configuration framework
