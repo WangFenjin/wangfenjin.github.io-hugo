@@ -49,12 +49,33 @@ od -An -i -j 16 -N 4 primary.idx
 ## 查看 [column].mrk
 
 mrk 文件是辅助定位 bin 文件设置的。bin 文件被分成小的数据块，每个数据块压缩后存放到一起。可以参考从 [1] 中的截图：
-[ch-bin-file](img/FC7137D3-314A-438A-A328-264E4154396B.jpeg)
+![ch-bin-file](/img/ch-bin.jpeg)
 
 mrk 文件行数与 idx 文件一致，每行包含两个固定为 8 字节的整型，第一个整型是 [column].bin 文件的偏移量定位到具体的数据块，第二个整型是把数据块解压后定位解压后的文件偏移。查看 mrk 的脚本如下：
 
 ```shell
+#!/bin/bash
 
+if [ -z "$1" ]; then
+    echo "Missing filename, mrk.sh file.mrk"
+    exit 1
+fi
+
+filename=$1
+len=$(wc -c < $filename)
+offset=0
+maxline=10
+if [ $((len/16)) -gt $maxline ]; then
+    echo "$filename first $maxline lines:"
+else
+    echo "$filename content:"
+fi
+while [ $((offset+16)) -le $len ] && [ $maxline -gt 0 ]; do
+    line=$(od -An -t d8 -j $offset -N 8 $filename)","$(od -An -t d8 -j $((offset+8)) -N 8 $filename)
+    echo $line
+    offset=$(($offset+16))
+    maxline=$(($maxline-1))
+done
 ```
 
 查看 mrk 文件的脚本是通用的，传入文件名就可以了。它的正确性也是可以验证的，比如对于 UserID 这个字段，它是 uint64 型，即占用 8 个字节，8192 行就是 65536 个字节；刚好 bin 文件中数据块的默认最小值是 65536，所以会发现 UserID.mrk 文件第二列的值永远为 0，因为刚好解压缩后的偏移量是 0。
