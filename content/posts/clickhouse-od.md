@@ -4,7 +4,7 @@ date: "2020-03-18"
 author: "Wang Fenjin"
 tags: ["clickhouse", "storage", "linux"]
 keywords: ["clickhouse", "storage", "linux"]
-description: "ClickHouse 没用提供现成的工具查看磁盘上的文件，我们可以用 od 来看！"
+description: "ClickHouse 没有提供现成的工具查看磁盘上的文件，我们可以用 od 来看！"
 ---
 
 ## 背景
