@@ -1,5 +1,5 @@
 ---
-title: "duckdb-rs will be the offical duckdb rust client"
+title: "duckdb-rs will be the offical DuckDB rust client"
 date: "2023-07-26"
 author: "Wang Fenjin"
 tags: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
