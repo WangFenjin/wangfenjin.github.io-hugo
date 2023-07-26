@@ -17,7 +17,7 @@ paginate = 10
     title = "Wang Fenjin"
     subtitle = "Software Engineer at Bytedance"
     keywords = "software engineer, distributed system, storage system, golang, python, rust, c++"
-    copyright = "Copyright © 2022 Wang Fenjin :: Powered by <a href=\"http://gohugo.io\">Hugo</a>"
+    copyright = "Copyright © 2023 Wang Fenjin :: Powered by <a href=\"http://gohugo.io\">Hugo</a>"
     menuMore = "Show more"
     readMore = "Read more"
     readOtherPosts = "Read other posts"

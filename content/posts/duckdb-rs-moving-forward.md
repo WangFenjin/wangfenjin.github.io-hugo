@@ -4,17 +4,19 @@ date: "2023-07-13"
 author: "Wang Fenjin"
 tags: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
 keywords: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
-description: "我决定把维护了两年多的开源项目交接给其他人维护！"
+description: "我决定把维护了两年多的开源项目交接给 duckdb.org！"
 draft: true
 ---
 
 ## 背景
 
-[duckdb](https://duckdb.org/) 是一个 C++ 编写的单机版嵌入式分析型数据库。它刚开源的时候是对标 SQLite 的列存数据库，并提供与 SQLite 一样的易用性，编译成一个头文件和一个 cpp 文件就可以在程序中使用，甚至提供与 SQLite 兼容的接口，因此受到了很多人的[关注](https://news.ycombinator.com/item?id=24531085)。
+[DuckDB](https://duckdb.org/) 是一个 C++ 编写的单机版嵌入式分析型数据库。它刚开源的时候是对标 SQLite 的列存数据库，并提供与 SQLite 一样的易用性，编译成一个头文件和一个 cpp 文件就可以在程序中使用，甚至提供与 SQLite 兼容的接口，因此受到了很多人的[关注](https://news.ycombinator.com/item?id=24531085)。
 
-我很久之前就开始关注 duckdb，并在 2021-06-07 开始写第一行 [duckdb-rs](https://github.com/wangfenjin/duckdb-rs) 的代码，在 一个多月后写了一篇[博客](https://www.wangfenjin.com/posts/duckdb-rs/)介绍了构建这个库的过程，算是实现了第一个版本。到今天差不多2年的时间，前后发布了[19个版本](https://crates.io/crates/duckdb)，收获了 200 多个star。
+我很久之前就开始关注 DuckDB，并在 2021-06-07 开始写第一行 [duckdb-rs](https://github.com/wangfenjin/duckdb-rs) 的代码，在 一个多月后写了一篇[博客](https://www.wangfenjin.com/posts/duckdb-rs/)介绍了构建这个库的过程，算是实现了第一个版本。到今天差不多2年的时间，前后发布了[19个版本](https://crates.io/crates/duckdb)，收获了 200 多个star。
 
-最近一年其实还有很多需求和想法去做优化，但是发现自己并没有那么多时间，收到的 issue 也越来越多。所以我决定把这个库转给 xx 来维护，相信这样能让 duckdb-rs 发展得越来越好。这篇博客总结下我维护的这段时间主要做的事，以及我认为可以改善点的，算是对过去的总结和对未来的憧憬。
+最近一年其实还有很多需求和想法去做优化，但是发现自己并没有那么多时间，收到的 issue 也越来越多。经过沟通，我会把这个库转给 [DuckDB](https://github.com/duckdb) 官方来维护，相信 duckdb-rs 一定会发展得越来越好。同时也非常感谢 Mark 和 Hannes 愿意接手这个仓库并把它作为官方的 rust 客户端。
+
+这篇博客总结下我维护的这段时间主要做的事，以及我认为可以改善的点，算是对过去的总结和对未来的憧憬。
 
 ## 关键决策
 
@@ -51,4 +53,4 @@ draft: true
 
 这篇文章发布的时候，意味着我不再是 duckdb-rs 的维护者。但是这不代表着后续我不再给 duckdb-rs 贡献代码，我还是会继续关注 duckdb 和 duckdb-rs，并且在闲暇的时候贡献一些代码。
 
-并且我有计划基于 duckdb-rs 搭建一个存储的 server，主要是基于 [arrow-flight](https://github.com/apache/arrow-rs/tree/master/arrow-flight) 协议，可能用一点 [arrow-datafusion](https://github.com/apache/arrow-datafusion) 的处理能力，然后用 duckdb-rs 作为存储层，如果再有时间还可以加上 raft 支持分布式。不知道有什么用，但是感觉是个很好玩的项目。
+如果有时间还可以基于 duckdb-rs 做一些其他的项目，比如用 rust 给 duckdb 做一个向量数据库的扩展，或者基于 duckdb-rs 搭建一个存储的 server，主要是基于 [arrow-flight](https://github.com/apache/arrow-rs/tree/master/arrow-flight) 协议，如果再有时间还可以加上 raft 支持分布式。不知道有什么用，但是感觉是个很好玩的项目。也可以考虑做一个分布式数据处理的工具，用 duckdb 做中间数据的存储或者计算加速等。
