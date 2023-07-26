@@ -1,11 +1,10 @@
 ---
 title: "我将不再做 duckdb-rs 的维护者"
-date: "2023-07-13"
+date: "2023-07-26"
 author: "Wang Fenjin"
 tags: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
 keywords: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
 description: "我决定把维护了两年多的开源项目交接给 duckdb.org！"
-draft: true
 ---
 
 ## 背景

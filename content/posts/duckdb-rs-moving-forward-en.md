@@ -1,11 +1,10 @@
 ---
 title: "I Am No Longer the Maintainer of duckdb-rs"
-date: "2023-07-13"
+date: "2023-07-26"
 author: "Wang Fenjin"
 tags: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
 keywords: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
 description: "I will step down as the maintainer of duckdb-rs!"
-draft: true
 ---
 
 ## Background
