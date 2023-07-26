@@ -1,5 +1,5 @@
 ---
-title: "I Am No Longer the Maintainer of duckdb-rs"
+title: "duckdb-rs will be the offical duckdb rust client"
 date: "2023-07-26"
 author: "Wang Fenjin"
 tags: ["duckdb", "apache-arrow", "olap", "database", "rust", "ffi"]
